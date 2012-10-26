@@ -1,14 +1,14 @@
 /**
- *    NAME        :    example1.cpp
- *    PURPOSE        :    Sample C++ project to demonstrate simple class.
- *    DATE        :    October 25, 2012
- *    AUTHOR         :    Michael Uman
+ *    NAME      :    example1.cpp
+ *    PURPOSE   :    Sample C++ project to demonstrate simple class.
+ *    DATE      :    October 25, 2012
+ *    AUTHOR    :    Michael Uman
  *
- *    NOTE        :    This example shows the use of an externally defined class.
+ *    NOTE      :    This example shows the use of an externally defined class.
  *
- *                    Instantiate 2 objects of class simpleObject, use const, ref
- *                    passing, and static member function, function overloading,
- *                    sub-classing objects, operator overloading.
+ *                   Instantiate 2 objects of class simpleObject, use const, ref
+ *                   passing, and static member function, function overloading,
+ *                   sub-classing objects, operator overloading.
  */
  
 #include <stdio.h>
