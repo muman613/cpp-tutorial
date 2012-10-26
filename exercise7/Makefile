@@ -2,8 +2,8 @@
 #	Simple makefile
 #
 
-TARGET=example5
-SRC=example5.cpp simpleObject.cpp complexObject.cpp
+TARGET=example7
+SRC=example7.cpp simpleObject.cpp complexObject.cpp
 OBJ=$(SRC:%.cpp=%.o)
 
 CFLAGS=-g3
