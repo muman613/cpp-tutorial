@@ -2,7 +2,7 @@
  *    This file contains the definition of the simpleObject class
  */
  
-#ifndef    __SIMPLEOBJECT_H__
+#ifndef __SIMPLEOBJECT_H__
 #define __SIMPLEOBJECT_H__
 
 #include <string>
@@ -55,16 +55,10 @@ public:
     bool operator == (const simpleObject& compare);
     
 protected:
-    std::string     m_name;
-#if 1
-    dpoint         m_point;
-#else    
-    int             m_x;
-    int             m_y;
-    int             m_z;
-#endif    
-    int             m_width;
-    int             m_height;
+    std::string     m_name;     ///< Objects name
+    dpoint          m_point;    ///< Objects location in 3d space
+    int             m_width;    ///< Objects width
+    int             m_height;   ///< Objects height
 };
 
 #endif
