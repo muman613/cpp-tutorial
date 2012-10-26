@@ -8,7 +8,7 @@
  *
  *                    Instantiate 2 objects of class simpleObject, use const, ref
  *                    passing, and static member function, function overloading,
- *                  sub-classing objects, operator overloading.
+ *                    sub-classing objects, operator overloading.
  */
  
 #include <stdio.h>
@@ -18,11 +18,12 @@
 #include "complexObject.h"
 #include "geometry.h"
 
+/* global variables */
+int user_x_translate = 50;
+
 /**
  *    Main entry point.
  */
-
-int user_x_translate = 50;
 
 int main(int argc, const char* argv[])
 {
@@ -64,7 +65,7 @@ int main(int argc, const char* argv[])
     
     printf("Translating object3 by %d, 0, 0...\n", user_x_translate);
     if (!object3.translate( user_x_translate, 0, 0 )) {
-        printf("Unable to move object3 by 190, 0, 0!\n");
+        printf("Unable to move object3 by %d, 0, 0!\n", user_x_translate);
     }
     
     object3.display_info( stdout );
