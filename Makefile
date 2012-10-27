@@ -4,7 +4,8 @@
 #
 
 all : exercise1 exercise2 exercise3 exercise4  \
-      exercise5 exercise6 exercise7 exercise8
+      exercise5 exercise6 exercise7 exercise8  \
+      exercise9
 	@echo "OK"
 	
 exercise1:	.PHONY
@@ -31,6 +32,9 @@ exercise7:	.PHONY
 exercise8:	.PHONY
 	make -C exercise8
 
+exercise9:	.PHONY
+	make -C exercise9
+
 clean:	.PHONY
 	make -C exercise1 clean
 	make -C exercise2 clean
@@ -40,6 +44,7 @@ clean:	.PHONY
 	make -C exercise6 clean
 	make -C exercise7 clean
 	make -C exercise8 clean
+	make -C exercise9 clean
 	
 .PHONY:
 	@true

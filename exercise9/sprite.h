@@ -3,6 +3,10 @@
 
 #include "simpleObject.h"
 
+/**
+ *  Sprite class is used to move simpleObjects along a trajectory.
+ */
+
 class sprite {
 public:
     sprite( simpleObject* pObj, int xvel, int yvel, int zvel )

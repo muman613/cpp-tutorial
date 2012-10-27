@@ -22,7 +22,9 @@
 #include "sprite.h"
 
 /* global variables */
-int user_x_translate = 50;
+int user_x_translate = 5,
+    user_y_translate = 5,
+    user_z_translate = 5;
 
 /**
  *    Main entry point.
@@ -31,8 +33,10 @@ int user_x_translate = 50;
 int main(int argc, const char* argv[])
 {
     /* Get x translation from commandline */
-    if (argc == 2) {
+    if (argc == 4) {
         user_x_translate = atoi( argv[1] );
+        user_y_translate = atoi( argv[2] );
+        user_z_translate = atoi( argv[3] );
     }
 
     simpleObject*           pNewObject = 0L;
@@ -62,9 +66,13 @@ int main(int argc, const char* argv[])
 
     /* test new sprite class */
     
-    sprite      mySprite( objVec[2], 2, 4, 8 );
+    sprite      mySprite( objVec[2], 
+                          user_x_translate, 
+                          user_y_translate, 
+                          user_z_translate );
 
-    printf("\n\nStarting sprite movement...\n");
+    printf("\n\nStarting sprite movement with velocity %d, %d, %d...\n",
+           user_x_translate, user_y_translate, user_z_translate);
     
     for (int x = 0 ; x < 10 ; x++) {
         mySprite.move();
