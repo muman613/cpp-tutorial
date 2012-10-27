@@ -34,7 +34,7 @@ public:
                  float density = DEFAULT_DENSITY);
     simpleObject(const char* sName, DPOINT_VECTOR& points);
     simpleObject(const simpleObject& copy);
-    ~simpleObject();
+    virtual ~simpleObject();
         
     /* Display object info to file ofp with message sMsg */
     virtual void    display_info(FILE* oFp, const char* sMsg) const;

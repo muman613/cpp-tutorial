@@ -14,7 +14,7 @@ public:
                float density = DEFAULT_DENSITY);
     cubeObject(const char* sName, int x, int y, int z,
                int mass = DEFAULT_WEIGHT, float density = DEFAULT_DENSITY);               
-    ~cubeObject();
+    virtual ~cubeObject();
 
     /* override simpleObjects display_info() function */
     void display_info(FILE* ofp, const char* sMsg) const;
@@ -32,7 +32,7 @@ public:
               float density = DEFAULT_DENSITY);
     triObject(const char* sName, int x, int y, int z,
                int mass = DEFAULT_WEIGHT, float density = DEFAULT_DENSITY);      
-    ~triObject();
+    virtual ~triObject();
     
     /* override simpleObjects display_info() function */
     void display_info(FILE* ofp, const char* sMsg) const;
