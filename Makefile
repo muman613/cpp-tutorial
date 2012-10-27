@@ -1,7 +1,11 @@
+###############################################################################
+# Makefile for C++ tutorial project
+###############################################################################
+#
 
 all : exercise1 exercise2 exercise3 exercise4  \
       exercise5 exercise6 exercise7 exercise8
-	echo "OK"
+	@echo "OK"
 	
 exercise1:	.PHONY
 	make -C exercise1
