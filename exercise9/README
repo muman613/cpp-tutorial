@@ -1,0 +1,21 @@
+===============================================================================
+░█▀▄░█▀▀░█▀█░█▀▄░█▄█░█▀▀
+░█▀▄░█▀▀░█▀█░█░█░█░█░█▀▀
+░▀░▀░▀▀▀░▀░▀░▀▀░░▀░▀░▀▀▀
+===============================================================================
+
+This example introduces additional container classes from the Standard Template
+Library (STL). 
+
+Utilize the std::vector<> class to contain a vector of points.
+
+Use the std::stringstream class to generate output string.
+
+Use virtual function to display object information.
+
+
+Use sprite class which contains a simpleObject pointer in order to provide
+movement velocity to an object.
+
+
+
