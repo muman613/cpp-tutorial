@@ -13,9 +13,6 @@ Use the std::stringstream class to generate output string.
 
 Use virtual function to display object information.
 
-
-Use sprite class which contains a simpleObject pointer in order to provide
-movement velocity to an object.
-
+Use SDL library to display objects using three panes (top, front, left)
 
 

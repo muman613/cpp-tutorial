@@ -49,11 +49,16 @@ public:
     
     std::string get_name()          const;
     size_t      get_point_count()   const;
+    size_t      get_line_count()    const;
     int         get_mass()          const;
     float       get_density()       const;
 
     /* Operator overloading demonstrated by this function */
     bool operator == (const threedObject& compare);
+    
+    
+    const dpoint&       point(size_t index) const;
+    const dline<size_t> line(size_t index) const;
     
 protected:
     friend class cubeObject;

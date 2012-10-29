@@ -33,6 +33,20 @@ typedef std::vector<dpoint>                     DPOINT_VECTOR;
 typedef std::vector<dpoint>::iterator           DPOINT_VECTOR_ITER;
 typedef std::vector<dpoint>::const_iterator     CONST_DPOINT_VECTOR_ITER;
 
+/* Rectangle class */
+
+class rect {
+public:
+    rect() { m_x1 = m_x2 = m_y1 = m_y2 = -1; }
+    rect(int x1, int y1, int x2, int y2) : m_x1(x1), m_x2(x2), m_y1(y1), m_y2(y2) {}
+    ~rect() {}
+    
+    int         m_x1;
+    int         m_x2;
+    int         m_y1;
+    int         m_y2;
+};
+
 /*  
     Create a line class which can be based on any numerical representation 
 
@@ -54,5 +68,6 @@ public:
 typedef std::vector< dline<size_t> >                    DLINE_VECTOR;
 typedef std::vector< dline<size_t> >::iterator          DLINE_VECTOR_ITER;
 typedef std::vector< dline<size_t> >::const_iterator    CONST_DLINE_VECTOR_ITER;
+
 
 #endif	// __GEOMETRY_H__

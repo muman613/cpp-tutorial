@@ -33,6 +33,11 @@ cubeObject::cubeObject(const char* sName, int m, float d)
     add_line( 5, 6 );
     add_line( 6, 7 );
     add_line( 7, 4 );
+    
+    add_line( 0 , 4 );
+    add_line( 1 , 5 );
+    add_line( 2 , 6 );
+    add_line( 3 , 7 );
 } 
 
 cubeObject::cubeObject(const char* sName, int x, int y, int z, int m, float d)
@@ -58,6 +63,11 @@ cubeObject::cubeObject(const char* sName, int x, int y, int z, int m, float d)
     add_line( 5, 6 );
     add_line( 6, 7 );
     add_line( 7, 4 );
+
+    add_line( 0 , 4 );
+    add_line( 1 , 5 );
+    add_line( 2 , 6 );
+    add_line( 3 , 7 );
     
     translate( x, y, z );   
 } 
@@ -97,7 +107,7 @@ triObject::triObject(const char* sName, int m, float d)
 :   threedObject(sName, m, d)
 {
     // ctor
-    add_point(   0, 10, 0 );
+    add_point(   0, 50, 0 );
     add_point( -10,  0, 10 );
     add_point( -10,  0, -10 );
     add_point(  10,  0, -10 );
@@ -117,7 +127,7 @@ triObject::triObject(const char* sName, int x, int y, int z, int m, float d)
 :   threedObject(sName, m, d)
 {
     // ctor
-    add_point(   0, 10, 0 );
+    add_point(   0, 50, 0 );
     add_point( -10,  0, 10 );
     add_point( -10,  0, -10 );
     add_point(  10,  0, -10 );

@@ -183,6 +183,20 @@ std::string threedObject::get_name() const {
 size_t threedObject::get_point_count() const {
     return m_points.size();
 }
+
+const dpoint& threedObject::point(size_t index) const {
+    return m_points[index];
+}
+
+const dline<size_t> threedObject::line(size_t index) const {
+    return m_lines[index];
+}
+
+/* Return # of lines in vector */
+size_t threedObject::get_line_count() const {
+    return m_lines.size();
+}
+
 /* return the objects mass */
 int threedObject::get_mass() const
 {
