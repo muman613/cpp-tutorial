@@ -35,7 +35,8 @@ THREED_OBJECT_VEC       objVec;
 SDL_Surface*            gSDLSurf = 0L;
 TTF_Font*               gTtfFont = 0L;
 
-sprite*                 sprite1 = 0L;
+sprite                  *sprite1 = 0L,
+                        *sprite2 = 0L;
 SDL_TimerID             tid = 0;
 
 rect                    vp1(10, 10, 410, 410);
@@ -50,6 +51,9 @@ bool release_graphics();
 Uint32 move_callback(Uint32 interval, void* param) {   
     if (sprite1 != 0L) {
         sprite1->move();
+    }
+    if (sprite2 != 0L) {
+        sprite2->move();
     }
     
     return interval;
@@ -80,7 +84,7 @@ bool init_graphics() {
         return false;
     }
     
-    tid = SDL_AddTimer( 1000, move_callback, 0L);
+    tid = SDL_AddTimer( 600, move_callback, 0L);
     
     return true;
 }
@@ -162,10 +166,12 @@ void add_objects_to_vector() {
     pNewObject->scale( 1.4 );
     objVec.push_back(pNewObject);
     pNewObject = new triObject( "tri_1", 50, -10, 25, 2, 0.67 );
+    pNewObject->scale( 1.2 );
     objVec.push_back(pNewObject);
 
     sprite1 = new sprite( objVec[1], 2, 4, -4 );
-
+    sprite2 = new sprite( objVec[2], 2, 8, -1 );
+    
     return;
 }
 

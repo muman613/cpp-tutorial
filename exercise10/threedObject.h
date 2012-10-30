@@ -62,10 +62,7 @@ public:
     const dpoint&       point(size_t index) const;
     const dline<size_t> line(size_t index) const;
     
-protected:
-    friend class cubeObject;
-    friend class triObject;
-    
+protected:    
     /* functions to add points to object */
     void    add_point(int x, int y, int z);
     void    add_point(dpoint& point);
@@ -74,16 +71,16 @@ protected:
     
     std::string     m_name;     ///< Objects name
     DPOINT_VECTOR   m_points;   ///< Vector of dpoints
-    DLINE_VECTOR    m_lines;    ///< Vector of lines
-    
+    DLINE_VECTOR    m_lines;    ///< Vector of lines    
     int             m_mass;     ///< Objects mass in lbs
     float           m_density;  ///< Objects density        
     
 };
 
+/*  typedef a vector of threedObjects */
+
 typedef std::vector<threedObject*>           THREED_OBJECT_VEC;
 typedef std::vector<threedObject*>::iterator THREED_OBJECT_VEC_ITER;
-
 
 #endif
 
