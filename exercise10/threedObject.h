@@ -45,6 +45,8 @@ public:
     bool    translate_y(int offset);
     bool    translate_z(int offset);
 
+    bool    scale(float pct);
+    
     static bool is_equal(threedObject& a, threedObject& b);
     
     std::string get_name()          const;

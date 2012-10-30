@@ -299,3 +299,32 @@ bool threedObject::operator ==(const threedObject& compare) {
     return true;
 }
 
+bool threedObject::scale(float pct) {
+    DPOINT_VECTOR_ITER  dIter;
+    DPOINT_VECTOR       newVector;
+    
+    /* 1st make sure that the translate will not move object out of range */
+    for (dIter = m_points.begin() ; dIter != m_points.end() ; dIter++) {
+        int        tmpX, tmpY, tmpZ;
+
+        
+        tmpX = (*dIter).m_x * pct;
+        tmpY = (*dIter).m_y * pct;
+        tmpZ = (*dIter).m_z * pct;
+
+        if ((tmpX < MIN_X) || (tmpX > MAX_X))
+            return false;
+        if ((tmpY < MIN_Y) || (tmpY > MAX_Y))
+            return false;
+        if ((tmpZ < MIN_Z) || (tmpZ > MAX_Z))
+            return false;    
+
+        newVector.push_back(dpoint( tmpX, tmpY, tmpZ ));
+    }
+
+    /* Now copy newVector to m_points */
+    m_points = newVector;    
+
+    return true;
+}
+

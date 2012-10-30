@@ -35,6 +35,9 @@ THREED_OBJECT_VEC       objVec;
 SDL_Surface*            gSDLSurf = 0L;
 TTF_Font*               gTtfFont = 0L;
 
+sprite*                 sprite1 = 0L;
+SDL_TimerID             tid = 0;
+
 rect                    vp1(10, 10, 410, 410);
 rect                    vp2(420, 10, 820, 410);
 rect                    vp3(10, 420, 410, 820);
@@ -44,6 +47,13 @@ bool init_graphics();
 bool release_graphics();
 
 
+Uint32 move_callback(Uint32 interval, void* param) {   
+    if (sprite1 != 0L) {
+        sprite1->move();
+    }
+    
+    return interval;
+}
 
 bool init_graphics() {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -69,10 +79,18 @@ bool init_graphics() {
         TTF_Quit();
         return false;
     }
+    
+    tid = SDL_AddTimer( 1000, move_callback, 0L);
+    
     return true;
 }
 
 bool release_graphics() {
+
+    if (tid != 0) {
+        SDL_RemoveTimer( tid );
+    }
+
     SDL_Quit();
     gSDLSurf = 0L;
 }
@@ -109,7 +127,14 @@ bool draw_rectangle(rect& thisRect, int r, int g, int b) {
         r,g,b, 255);
     lineRGBA( gSDLSurf, thisRect.m_x2, thisRect.m_y1, thisRect.m_x2, thisRect.m_y2,
         r,g,b, 255);
-                
+
+    lineRGBA( gSDLSurf, (thisRect.m_x1 + (thisRect.m_x2 - thisRect.m_x1) / 2), thisRect.m_y1 + 20,
+                        (thisRect.m_x1 + (thisRect.m_x2 - thisRect.m_x1) / 2), thisRect.m_y2 - 20,
+                        0, 180, 255, 255); 
+
+    lineRGBA( gSDLSurf, thisRect.m_x1 + 20, (thisRect.m_y1 + (thisRect.m_y2 - thisRect.m_y1) / 2),
+                        thisRect.m_x2 - 20, (thisRect.m_y1 + (thisRect.m_y2 - thisRect.m_y1) / 2), 
+                        0, 180, 255, 255);                 
     return true;
 }
 
@@ -133,10 +158,13 @@ void add_objects_to_vector() {
 
     pNewObject = new cubeObject( "cube_1", 5, 0.95 );
     objVec.push_back(pNewObject);
-//    pNewObject = new cubeObject( "cube_2", 40, 0, 0 );
-//    objVec.push_back(pNewObject);
+    pNewObject = new cubeObject( "cube_2", 40, 30, -10 );
+    pNewObject->scale( 1.4 );
+    objVec.push_back(pNewObject);
     pNewObject = new triObject( "tri_1", 50, -10, 25, 2, 0.67 );
     objVec.push_back(pNewObject);
+
+    sprite1 = new sprite( objVec[1], 2, 4, -4 );
 
     return;
 }
@@ -211,7 +239,6 @@ void drawObjects() {
  
 int main(int argc, const char* argv[])
 {
-#if 1
     bool                    bDone = false;
     THREED_OBJECT_VEC_ITER  oIter;
     
@@ -249,60 +276,6 @@ int main(int argc, const char* argv[])
     }
     
     release_graphics();
-
-#else
-    /* Get x translation from commandline */
-    if (argc == 4) {
-        user_x_translate = atoi( argv[1] );
-        user_y_translate = atoi( argv[2] );
-        user_z_translate = atoi( argv[3] );
-    }
-
-    threedObject*           pNewObject = 0L;
-    THREED_OBJECT_VEC       objVec;
-    THREED_OBJECT_VEC_ITER  oIter;
-    int                     count = 0;
-    
-    /* Test the new cubeObject class */
-    pNewObject = new cubeObject( "cube_1", 5, 0.95 );
-    objVec.push_back(pNewObject);
-    pNewObject = new cubeObject( "cube_2", 40, 0, 0 );
-    objVec.push_back(pNewObject);
-    pNewObject = new triObject( "tri_1", 2, 0.67 );
-    objVec.push_back(pNewObject);
-    
-    printf("dumping objects!\n");
-    
-    for (oIter = objVec.begin() ; oIter != objVec.end() ; oIter++) {
-        std::stringstream sMsg;
-        
-        sMsg << "==object " << count++ << " ==";
-        
-        printf("%s\n", sMsg.str().c_str());
-        
-        (*oIter)->display_info( stdout );
-    }    
-
-    /* test new sprite class */
-    
-    sprite      mySprite( objVec[2], 
-                          user_x_translate, 
-                          user_y_translate, 
-                          user_z_translate );
-
-    printf("\n\nStarting sprite movement with velocity %d, %d, %d...\n",
-           user_x_translate, user_y_translate, user_z_translate);
-    
-    for (int x = 0 ; x < 10 ; x++) {
-        mySprite.move();
-        (*mySprite)->display_info(stdout);
-    }
-
-    /* free all dynamically allocated objects in vector */
-    for (oIter = objVec.begin() ; oIter != objVec.end() ; oIter++) {
-        delete (*oIter);
-    }
-#endif
 
     return 0;        
 }
