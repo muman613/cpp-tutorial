@@ -48,7 +48,7 @@ int main()
 
 	/* check if these objects occupy the same location */
 	printf("object1 & object2 %s occupy the same place...\n",
-		simpleObject::is_equal( object1, object2)?"DO":"DO NOT");
+		simpleObject::is_equal( object1, object2 )?"DO":"DO NOT");
 		
 	printf("moving object2 by 50,50,50...\n");
 	object2.translate( 50, 50, 50 );
@@ -56,7 +56,8 @@ int main()
 	display_object_info( "object2", object2 );
 	/* check if these objects occupy the same location */
 	printf("object1 & object2 %s occupy the same place...\n",
-		simpleObject::is_equal( object1, object2)?"DO":"DO NOT");
+		simpleObject::is_equal( object1, object2 )?"DO":"DO NOT");
 		
 	return 0;		
 }
+

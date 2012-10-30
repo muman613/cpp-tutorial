@@ -113,7 +113,8 @@ void simpleObject::get_dimensions(int& w, int& h) const
 }
 
 /* static function used to compare two objects */
-bool simpleObject::is_equal(simpleObject& a, simpleObject& b) {
+bool simpleObject::is_equal(simpleObject& a, simpleObject& b)
+{
 
 	if ((a.m_x == b.m_x) &&
 	    (a.m_y == b.m_y) &&
