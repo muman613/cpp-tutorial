@@ -55,10 +55,7 @@ public:
     /* Operator overloading demonstrated by this function */
     bool operator == (const simpleObject& compare);
     
-protected:
-    friend class cubeObject;
-    friend class triObject;
-    
+protected:    
     /* functions to add points to object */
     void    add_point(int x, int y, int z);
     void    add_point(dpoint& point);
